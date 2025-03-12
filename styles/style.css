@@ -6,3 +6,15 @@ h1 {
   color: red;
   font-family: monospace;
 }
+
+#img-container {
+  display: flex;
+  width: 25%;
+  padding: 20px;
+  background-color: blueviolet;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;
+}
