@@ -1,0 +1,65 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    cursor: grabbing;
+    border: 10px solid darkgreen;
+    background-color: red;
+}
+
+#rind {
+    border: 20px solid rgb(176, 255, 176);
+}
+
+h1 {
+    font-size: 90px;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-decoration-color: darkgreen;
+    white-space: pre-line;
+    text-align: center;
+    text-shadow: 2px 2px 5px darkolivegreen;
+}
+
+h1:hover {
+    text-transform: uppercase;
+    color: darkgreen;
+    text-shadow: 2px 2px 5px black;
+    text-decoration-color: black;
+    letter-spacing: 15px;
+}
+
+p {
+    background-color: greenyellow;
+    word-spacing: 40px;
+}
+
+p:hover {
+    background-color: darkgreen;
+    color: greenyellow;
+}
+
+#pics {
+    background-image: url(images/emoji.png);
+    padding: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+img {
+    width: 500px;
+    padding: 30px;
+    transition-duration: 2s;
+}
+
+img:hover {
+    transform: rotate(1turn);
+}
+
+#fun-facts {
+    list-style-type: "\1F349";
+}
+
+h2 {
+    color: green;
+    background-color: black;
+    text-align: center;
+}
