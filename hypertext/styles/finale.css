@@ -1,0 +1,37 @@
+body {
+    font-family: "Space Grotesk", sans-serif;
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin: auto;
+}
+
+a {
+    color: rgb(243, 0, 186);
+}
+
+h1 {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgb(178, 178, 255);
+}
+
+#return a {
+    color: rgb(243, 0, 186);
+    font-size: 20px;
+}
+
+#return a:hover {
+    background-color: rgb(178, 178, 255);
+}
+
+#img-container {
+    background-color: rgba(243, 0, 186, 0.228);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+img {
+    width: 50%;
+}
