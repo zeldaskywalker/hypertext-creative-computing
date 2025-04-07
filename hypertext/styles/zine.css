@@ -1,0 +1,155 @@
+body {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.1vw;
+    background-color:seashell;
+}
+
+.inside-page {
+    width: 100%;
+}
+
+.cover-page {
+    width: 100%;
+}
+
+#overall-zine-container {
+    display: flex;
+    width: 90%;
+    row-gap: 100px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.zine-annotated-section {
+    border: 1px solid purple;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+    /* position: relative; */
+}
+
+/* #tarot-arrow {
+    position: absolute;
+    top: 80px;
+    left: 220px;
+} */
+
+.center-zine-audio {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.center-zine-no-audio {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right-annotations {
+    text-align: right;
+    padding: 10px;
+    width: 20%;
+    align-content: center;
+}
+
+.left-annotations {
+    padding: 10px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.annotations-cover-back {
+    width: 30%;
+}
+
+.left-annotations img {
+    width: 80%;
+}
+
+#overlay-container {
+    position: relative;
+}
+
+#overlay-container a:hover {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(178, 178, 255, 0.9);
+    overflow: hidden;
+    width: 80%;
+    height: 100%;
+    transform: scale(0);
+    transition: .3s ease;
+}
+
+ul {
+    padding-inline-start: 20px;
+    margin-block-start: 0em;
+}
+
+#overlay-container:hover .overlay {
+    transform: scale(1);
+}
+
+a {
+    color: rgb(243, 0, 186);
+}
+
+a:hover {
+    background-color: rgb(178, 178, 255);
+}
+
+.text a {
+    color: rgb(243, 0, 186);
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+figure {
+    text-align: center;
+    background-color: rgba(100, 148, 237, 0.557);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#two-tarot-cards {
+    display: flex;
+    gap: 10px;
+}
+
+#two-tarot-cards img {
+    width: 45%;
+    border-radius: 10px;
+}
+
+#four-tarot-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#four-tarot-cards img {
+    width: 40%;
+    border-radius: 10px;
+}
+
+.right-annotations img {
+    width: 80%;
+}

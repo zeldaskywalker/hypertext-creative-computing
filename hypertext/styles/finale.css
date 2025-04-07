@@ -2,6 +2,7 @@ body {
     font-family: "Space Grotesk", sans-serif;
     display: flex;
     width: 90%;
+    background-color:seashell;
     flex-direction: column;
     margin: auto;
 }
@@ -27,6 +28,7 @@ h1 {
 
 #img-container {
     background-color: rgba(243, 0, 186, 0.228);
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     padding: 10px;
@@ -34,4 +36,5 @@ h1 {
 
 img {
     width: 50%;
+    border-radius: 10px;
 }
