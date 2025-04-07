@@ -1,3 +1,8 @@
+html {
+    scroll-snap-type: y mandatory;
+    overflow: scroll;
+}
+
 body {
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.1vw;
@@ -19,6 +24,8 @@ body {
     margin: auto;
     flex-direction: column;
     align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .zine-annotated-section {
@@ -27,7 +34,7 @@ body {
     justify-content: space-evenly;
     width: 100%;
     padding: 10px;
-    /* position: relative; */
+    scroll-snap-align: center;
 }
 
 /* #tarot-arrow {
