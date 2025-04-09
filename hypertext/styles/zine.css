@@ -20,7 +20,7 @@ body {
 #overall-zine-container {
     display: flex;
     width: 90%;
-    row-gap: 100px;
+    row-gap: 150px;
     margin: auto;
     flex-direction: column;
     align-items: center;
