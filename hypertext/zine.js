@@ -5,6 +5,8 @@ function handleMobileOrResize() {
   if (window.innerWidth < 690) {
     zineContainer.style.display = 'none';
     mobileContainer.style.display = 'flex';
+    mobileContainer.style.padding = '20px';
+    mobileContainer.style.margin = 'auto';
   } else if (window.innerWidth >= 690) {
     zineContainer.style.display = 'flex';
     mobileContainer.style.display = 'none';
@@ -13,4 +15,4 @@ function handleMobileOrResize() {
 
 handleMobileOrResize();
 
-window.addEventListener("resize", handleMobileOrResize());
+window.onresize = handleMobileOrResize;
