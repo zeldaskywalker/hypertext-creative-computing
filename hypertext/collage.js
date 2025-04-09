@@ -1,4 +1,10 @@
-let imgs = [
+var loading_screen = document.querySelector(".loading");
+
+window.addEventListener('load', function() {
+    loading_screen.style.display = 'none';
+})
+
+const imgs = [
     'assets/images/spring vibes/444.jpeg',
     'assets/images/spring vibes/adora_bed.jpeg',
     'assets/images/spring vibes/adora_sun.jpeg',
