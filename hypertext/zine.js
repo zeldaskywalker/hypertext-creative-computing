@@ -5,7 +5,8 @@ function handleMobileOrResize() {
   if (window.innerWidth < 690) {
     zineContainer.style.display = 'none';
     mobileContainer.style.display = 'flex';
-    mobileContainer.style.padding = '20px';
+    mobileContainer.style['flex-direction'] = 'column';
+    mobileContainer.style.padding = '15px';
     mobileContainer.style.margin = 'auto';
   } else if (window.innerWidth >= 690) {
     zineContainer.style.display = 'flex';
