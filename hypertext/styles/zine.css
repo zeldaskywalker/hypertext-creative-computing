@@ -3,14 +3,34 @@ html {
     overflow: scroll;
 }
 
+figcaption {
+    font-size: 1.2vw;
+}
+
 body {
     font-family: "Space Grotesk", sans-serif;
     font-size: 1.1vw;
     background-color:seashell;
 }
 
+#mobile {
+    display: none;
+    padding: "20px";
+}
+
+#mobile h1 {
+    font-size: 50px;
+    text-align: center;
+}
+
 .inside-page {
     width: 100%;
+}
+
+h1 {
+    text-decoration-line: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: rgb(178, 178, 255);
 }
 
 .cover-page {
