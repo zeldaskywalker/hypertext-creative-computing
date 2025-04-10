@@ -90,5 +90,5 @@ imgs.forEach(function(source) {
     image_div.appendChild(img);
 
     // append image container div to main container
-    main_container.appendChild(image_div)
+    main_container.appendChild(image_div);
   })
