@@ -15,3 +15,7 @@ textarea {
     border-radius: 4px;
     resize: none;
 }
+
+iframe {
+    width: 80%;
+}

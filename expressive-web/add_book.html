@@ -7,8 +7,10 @@
 
 <body>
     <div><h1>add a book to <i>our library</i></h1></div>
+    <iframe id="baserow_embed" src="https://baserow.io/form/ET3lQah7wkFx-WcpW_2hoOjVOCcCklKmVJ6fCTHj3d4" frameborder="0" height="1300px"></iframe>
 
-    <form id="bookinfo" enctype="multipart/form-data" method="post" action="thanks.html">
+    <!-- SAD... I can't do POST requests in Github pages... but I'm keeping this code here in case I want to use it in the future! -->
+    <!-- <form id="bookinfo" enctype="multipart/form-data" method="post" action="thanks.html">
         <p>
             <label for="title">enter book title:</label>
             <input type="text" id="title" name="title" placeholder="the hunger games" />
@@ -40,7 +42,7 @@
         </p>
 
         <input type="submit" placeholder="add your book!" />
-      </form>
+    </form> -->
 
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <script src="scripts/add_book.js"></script>

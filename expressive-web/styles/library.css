@@ -1,12 +1,13 @@
-/* .book {
-    padding: 15px 0 0 0;
-    margin: auto;
+.book_on_shelf {
+    border: 1px solid palevioletred;
+    cursor: pointer;
 }
 
-.shelf {
-    border-bottom: 30px solid #A1A194;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    top: -15px;
-    z-index: -1;
-} */
+.book_details {
+    border: 1px solid green;
+    display: none;
+}
+
+#overall {
+    display: flex;
+}
