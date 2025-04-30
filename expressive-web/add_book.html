@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles/global.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="styles/add_book.css" media="screen" />
+</head>
+
+<body>
+    <div><h1>add a book to <i>our library</i></h1></div>
+
+    <form id="bookinfo" enctype="multipart/form-data" method="post" action="thanks.html">
+        <p>
+            <label for="title">enter book title:</label>
+            <input type="text" id="title" name="title" placeholder="the hunger games" />
+        </p>
+
+        <p>
+            <label for="author">author's name:</label>
+            <input type="text" id="author" name="author" placeholder="suzanne collins" />
+        </p>
+
+        <p>
+            <label for="note">reader's note:</label>
+            <textarea id="note" name="note" placeholder="share your thoughts here..."></textarea>
+        </p>
+
+        <p>
+            <label for="location">where did you read this book most?</label>
+            <textarea id="location" name="location" placeholder="at the park? on the train? on your roof? let us know here..."></textarea>
+        </p>
+
+        <p>
+            <label for="initials">your initial(s):</label>
+            <input type="text" id="initials" name="initials" placeholder="z" maxlength="8"/>
+        </p>
+
+        <p>
+          <label for="picture">upload a picture of the book!</label>
+          <input type="file" id="picture" name="picture" required />
+        </p>
+
+        <input type="submit" placeholder="add your book!" />
+      </form>
+
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="scripts/add_book.js"></script>
+</body>
