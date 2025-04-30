@@ -22,12 +22,24 @@ async function getAllBooks() {
         var open_book_container = document.getElementById('open-book');
         var open_book_div = document.createElement('div');
         open_book_div.className = "book_details";
-        open_book_div.innerText = book.initials + " read " + book.title + " by " + book.author + "." 
-        open_book_container.appendChild(open_book_div);
+        open_book_div.innerText = book.initials + " read " + book.title + " by " + book.author + "."
 
+
+        // Create the close button
+        var close_button = document.createElement('button');
+        close_button.innerHTML = '&times;'; // Use an "X" symbol
+        close_button.style.cursor = 'pointer';
+        open_book_div.appendChild(close_button);
+        open_book_container.appendChild(open_book_div);
+    
         book_div.addEventListener("click", function() {
           console.log('i am here');
           open_book_div.style.display = "flex";
+        });
+
+        close_button.addEventListener("click", function() {
+          console.log('removing');
+          open_book_div.remove();
         })
     })
   });
