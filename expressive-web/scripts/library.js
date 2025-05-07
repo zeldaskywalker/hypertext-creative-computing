@@ -17,41 +17,43 @@ async function getAllBooks() {
         var book_div = document.createElement('div');
         book_div.innerText = book.title;
         book_div.className = "book_on_shelf";
-        library_container.appendChild(book_div);
-
-        var open_book_container = document.getElementById('open-book');
-        var open_book_div = document.createElement('div');
-        open_book_div.className = "book_details";
-        open_book_div.innerText = book.initials + " read " + book.title + " by " + book.author + "."
-
-
-        // Create the close button
-        var close_button = document.createElement('button');
-        close_button.innerHTML = '&times;'; // Use an "X" symbol
-        close_button.style.cursor = 'pointer';
-        open_book_div.appendChild(close_button);
-        open_book_container.appendChild(open_book_div);
-    
         book_div.addEventListener("click", function() {
-          console.log('i am here');
-          open_book_div.style.display = "flex";
+          addBookDetails(book);
         });
-
-        close_button.addEventListener("click", function() {
-          console.log('removing');
-          open_book_div.remove();
-        })
+        library_container.appendChild(book_div);
     })
   });
 }
 
-getAllBooks();
+const list_of_books = await getAllBooks();
 
-// TODO: on pressing a specific book, create a pop-up with all book info on right hand side
-// function click(book){
-//   var open_book_container = document.getElementById('open-book');
-//   var book_div = document.createElement('div');
-//   book_div.className = "book_details";
-//   book_div.innerText = book.initials + " read " + book.title + " by " + book.author + "." 
-//   open_book_container.appendChild(book_div);
-// }
+function addBookDetails(book) {
+  var open_book_container = document.getElementById('open-book-container');
+
+  // create div for open book
+  var open_book_div = document.createElement('div');
+  open_book_div.id = "open-book-details";
+
+  // create left and right pages for open book
+  var left_page = document.createElement('div');
+  var right_page = document.createElement('div');
+
+  left_page.id = "left";
+  right_page.id = "right";
+  left_page.innerText = book.initials + " read " + book.title + " by " + book.author + ".";
+  right_page.innerText = "reader's note: " + book["reader's note"] + "– " + book.initials;
+  open_book_div.appendChild(left_page);
+  open_book_div.appendChild(right_page);
+
+  // create the close button
+  var close_button = document.createElement('button');
+  close_button.innerHTML = '&times;'; // Use an "X" symbol
+  close_button.style.cursor = 'pointer';
+  open_book_div.appendChild(close_button);
+  open_book_container.appendChild(open_book_div);
+
+  close_button.addEventListener("click", function() {
+    console.log('removing');
+    open_book_div.remove();
+  });
+}

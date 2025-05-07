@@ -1,54 +1,52 @@
-// unfortunately, I am not allowed to make POST requests with Github Pages :(
-// const add_book_form = document.getElementById("bookinfo");
+// upload new book to baserow
+async function uploadNewBook() {
+    // get book picture file from picture input
+    const book_picture_file = document.getElementById("picture").files[0];
 
-// // get book picture file
-// const book_picture_input = document.getElementById("picture");
-// const book_picture = book_picture_input.addEventListener("change", getBookPicture);
-// function getBookPicture() {
-//     return this.files[0];
-// }
+    // create FormData to upload file to baserow
+    var formData = new FormData();
+    formData.append("file", book_picture_file);
+    axios({
+        method: "POST",
+        url: "https://api.baserow.io/api/user-files/upload-file/",
+        headers: {
+            Authorization: "Token LnfGhMqIKGMAFpImIbVbEwf6T0BqTg4K",
+            "Content-Type": "multipart/form-data"
+        },
+        data: formData,
+    })
 
-// // passed into baserow 
-// const formData = new FormData();
-// formData.append('file', book_picture);
+    // grab response from uploading file to baserow
+    .then(function (response) {
+        return response.data;
+    })
 
-// async function uploadNewBook() {
-//     // upload file
-//     axios.post('/fileupload', formData, {
-//         method: "POST",
-//         url: "https://api.baserow.io/api/user-files/upload-file/",
-//         headers: {
-//           Authorization: "Token LnfGhMqIKGMAFpImIbVbEwf6T0BqTg4K",
-//           "Content-Type": "multipart/form-data"
-//         }
-//       }).then(function (response) {
-//         // get file name from response of uploading to baserow
-//         console.log('sending to baserow...');
-//         const file_name = response.name;
-//         return file_name;
-//       }).then(function (file_name) {
-//         // with file name, send book details to create a new book entry in baserow
-//         axios({
-//             method: "POST",
-//             url: "https://api.baserow.io/api/database/rows/table/519748/?user_field_names=true",
-//             headers: {
-//               Authorization: "Token LnfGhMqIKGMAFpImIbVbEwf6T0BqTg4K",
-//               "Content-Type": "application/json"
-//             },
-//             data: {
-//               "title": document.getElementById('#title'),
-//               "readers' note": document.getElementById('#note'),
-//               "author": document.getElementById('#author'),
-//               "location of reading": document.getElementById('#location'),
-//               "initials": document.getElementById('#initials'),
-//               "picture": [
-//                   {
-//                       "name": file_name
-//                   }
-//               ]
-//             }
-//           })
-//       })
-// }
+    // with file data from response, send book details to create a new book entry in baserow
+    .then(function (file) {
+        axios({
+            method: "POST",
+            url: "https://api.baserow.io/api/database/rows/table/519748/?user_field_names=true",
+            headers: {
+                "Authorization": "Token LnfGhMqIKGMAFpImIbVbEwf6T0BqTg4K",
+                "Content-Type": "application/json"
+            },
+            data: {
+                "title": document.getElementById("title").value,
+                "readers' note": document.getElementById("note").value,
+                "author": document.getElementById("author").value,
+                "location of reading": document.getElementById("location").value,
+                "initials": document.getElementById("initials").value,
+                "picture": [ file ]
+            }
+        })
+    }).then(function () {
+        window.location.href = "thanks.html";
+    })
+}
 
-// add_book_form.addEventListener("submit", uploadNewBook);
+const book_pic_button = document.getElementById('picture');
+const file_chosen = document.getElementById('file-chosen');
+
+book_pic_button.addEventListener('change', function(){
+    file_chosen.textContent = "⇧ " + this.files[0].name;
+})

@@ -1,21 +1,129 @@
-/* #note {
-    width: 100px;
-} */
-
 label {
     display: block;
     margin-bottom: 10px;
 }
 
 textarea {
-    width: 50%;
-    height: 150px;
+    font-family: "Tagesschrift", system-ui;
+    width: 100%;
+    height: 100px;
     padding: 5px;
     box-sizing: border-box;
     border-radius: 4px;
     resize: none;
 }
 
-iframe {
-    width: 80%;
+h1 {
+    margin-top: 0px;
+    text-align: center;
+}
+
+form [type="button"] {
+    border-radius: 2px;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+form:invalid [type="button"] {
+    pointer-events: none;
+    border: 1px solid #999999;
+    background-color: #CCCCCC;
+    color: #666666;
+}
+
+form:valid [type="button"] {
+    background-color: var(--icy);
+    border-color: var(--green);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+form [type="button"]:hover {
+    background-color: var(--sage);
+}
+
+input {
+    font-family: "Tagesschrift", system-ui;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+input[type="text"]:invalid,
+textarea:invalid {
+    border-color: var(--red);
+}
+
+input[type="text"]:valid,
+textarea:valid {
+    border-color: var(--sage);
+}
+
+input[type="text"]:invalid:focus,
+textarea:invalid:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2);
+}
+
+input[type="text"]:valid:focus,
+textarea:valid:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 2px rgba(68, 170, 68, 0.2);
+}
+
+#title, #author {
+    width: 90%;
+}
+
+input[type="file"] {
+    display: none;
+} 
+
+.custom-file-upload {
+    background-color: var(--icy);
+    font-family: "Tagesschrift", system-ui;
+    border: 1px solid var(--sapphire);
+    border-radius: 2px;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--water);
+}
+
+#overall-container {
+    margin: 0 auto;
+    background-color: var(--paper);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    flex: 1 1 calc(50% - 20px);
+}
+
+.form-group.full-width {
+    flex: 1 1 100%;
 }

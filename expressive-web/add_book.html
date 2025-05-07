@@ -6,43 +6,53 @@
 </head>
 
 <body>
-    <div><h1>add a book to <i>our library</i></h1></div>
-    <iframe id="baserow_embed" src="https://baserow.io/form/ET3lQah7wkFx-WcpW_2hoOjVOCcCklKmVJ6fCTHj3d4" frameborder="0" height="1300px"></iframe>
+    <div id="return"> <h2>↜ <a href="library.html">return to <i>our library</i></a></h2></div>
+    <div id="overall-container">
+        <div><h1>add a book 🔖</h1></div>
 
-    <!-- SAD... I can't do POST requests in Github pages... but I'm keeping this code here in case I want to use it in the future! -->
-    <!-- <form id="bookinfo" enctype="multipart/form-data" method="post" action="thanks.html">
-        <p>
-            <label for="title">enter book title:</label>
-            <input type="text" id="title" name="title" placeholder="the hunger games" />
-        </p>
+        <form id="bookinfo" enctype="multipart/form-data">
+            <div id="form-container">
+                <div class="form-group">
+                    <label for="title">book title:</label>
+                    <input type="text" class="req" id="title" name="title" placeholder="the hunger games" required/>
+                </div>
+    
+                <div class="form-group">
+                    <label for="author">author's name:</label>
+                    <input type="text" class="req" id="author" name="author" placeholder="suzanne collins" required/>
+                </div>
+    
+                <div class="form-group full-width">
+                    <label for="note">reader's note:</label>
+                    <textarea id="note" class="req" name="note" placeholder="share your thoughts here..." required></textarea>
+                </div>
+    
+                <div class="form-group full-width">
+                    <label for="location">where did you read this book most?</label>
+                    <textarea id="location" class="req" name="location" placeholder="at the park? on the train? on your roof? let us know here..." required></textarea>
+                </div>
+    
+                <div class="form-group">
+                    <label for="initials">your initial(s):</label>
+                    <input type="text" id="initials" name="initials" placeholder=".. or anon!" maxlength="6"/>
+                </div>
+    
+                <div class="form-group">
+                <label id="file-chosen" for="picture" class="custom-file-upload">⇧ upload a picture of the book</label>
+                <input type="file" class="req" id="picture" name="picture" accept=".png, .jpg, .jpeg" required />
+                <!-- <span id="file-chosen">No file chosen</span> -->
 
-        <p>
-            <label for="author">author's name:</label>
-            <input type="text" id="author" name="author" placeholder="suzanne collins" />
-        </p>
+                <!-- name of file chosen
+                <span id="file-chosen">No file chosen</span> -->
+                </div>
 
-        <p>
-            <label for="note">reader's note:</label>
-            <textarea id="note" name="note" placeholder="share your thoughts here..."></textarea>
-        </p>
+                <div>
+                    <input type="button" id="add_book" value="send book to library!" onclick="uploadNewBook()"/>
+                </div>
+            </div>
+        </form>
 
-        <p>
-            <label for="location">where did you read this book most?</label>
-            <textarea id="location" name="location" placeholder="at the park? on the train? on your roof? let us know here..."></textarea>
-        </p>
-
-        <p>
-            <label for="initials">your initial(s):</label>
-            <input type="text" id="initials" name="initials" placeholder="z" maxlength="8"/>
-        </p>
-
-        <p>
-          <label for="picture">upload a picture of the book!</label>
-          <input type="file" id="picture" name="picture" required />
-        </p>
-
-        <input type="submit" placeholder="add your book!" />
-    </form> -->
+    </div>
 
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <script src="scripts/add_book.js"></script>

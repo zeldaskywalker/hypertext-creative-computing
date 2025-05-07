@@ -1,13 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
 
 body {
+    width: 80%;
+    margin: 0 auto;
+}
+
+:root {
+    --sapphire: rgb(64, 89, 173);
+    --purple: rgb(196,165,206);
+    --sage: rgb(144, 180, 148);
+    --green: rgb(16, 73, 17);
+    --icy: rgb(227, 233, 255);
+    --water: rgb(172, 188, 245);
+    --paper: rgb(246,238,227);
+    --red: rgb(202, 60, 37);
+}
+
+body {
     font-family: "Tagesschrift", system-ui;
-    font-size: 1.1vw;
-    background-color: #c4a5ce;
+    background-color: var(--purple);
 }
 
 h1 {
-    text-decoration-line: underline;
-    text-decoration-style: wavy;
-    text-decoration-color: #8a7f8d;
+    font-size: 60px;
+}
+
+a {
+    color: var(--green);
+    text-decoration: var(--green) dotted underline;
+}
+
+a:hover {
+    background-color: var(--sage);
+    text-decoration: var(--green) dotted underline;
 }
