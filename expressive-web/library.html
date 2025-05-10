@@ -7,26 +7,19 @@
 
 <body>
     <div id="return"> <h2>↜ <a href="add_book.html">add a book!</a></h2></div>
-    <div><h1>library lives here!</h1></div>
-    <p>this page is still under construction...</p>
 
     <div id="overall">
-        <div id="library">
+
+        <div id="new-library">
+            <img id="drawing" src="assets/images/library.png">
+            <div id="top-shelf"></div>
+            <div id="middle-shelf"></div>
+            <div id="bottom-shelf"></div>
         </div>
-    
-        <div id="open-book-container">
-            <!-- <div class="book">
-                <span class="page turn"></span>
-                <span class="page turn"></span>
-                <span class="page turn"></span>
-                <span class="page turn"></span>
-                <span class="page turn"></span>
-                <span class="page turn"></span>
-                <span class="cover"></span>
-                <span class="page"></span>
-                <span class="cover turn"></span>
-            </div> -->
-        </div>
+
+        <dialog id="book-modal">
+        </dialog>
+
     </div>
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <script type="module" src="scripts/library.js"></script>
