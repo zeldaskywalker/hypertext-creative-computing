@@ -6,11 +6,10 @@
 </head>
 
 <body>
-
     <div id="overall">
-
         <div id="new-library">
             <img id="drawing" src="assets/images/library.png">
+            <div id="info"></div>
             <div id="top-shelf"></div>
             <div id="middle-shelf"></div>
             <div id="bottom-shelf"></div>
@@ -28,12 +27,47 @@
             </a>
         </div>
 
+        <dialog id="info-modal">
+            <div id="info-content">
+                <h2>EXPLORING <i><u>OUR LIBRARY</u></i></h2>
+                <p>
+                    welcome ♡
+                </p>
+                <p>
+                    you have officially entered <i><u>our library</u></i> ⋆⭒˚.⋆
+                </p>
+                <p>
+                    take a look around! you should see a bookshelf, bulletin board, some wall hangings, a cozy seat, and a small side table.
+                </p>
+                <p>
+                    do you notice the pops of <span id="color">color</span> in the drawing? <br>
+                    hover over them, and a tooltip will invite your engagement.
+                </p>
+                <p>
+                    make yourself at home: pick up a book... or maybe even add your own!
+                </p>
+                <p>
+                    if you want to see this information again, you can always click on the <img id="inline-info" src="assets/images/info_icon.png"> icon in the top left-hand corner of <i><u>our library</u></i>.
+                </p>
+                <p id="signoff">
+                    with love,
+                    <br>
+                    zelda ⋆˙⟡
+                </p>
+                <button id="close-button">&times;</button>
+            </div>
+        </dialog>
+
         <dialog id="book-modal">
         </dialog>
 
         <dialog id="board-modal">
         </dialog>
-
+    </div>
+    <div id="not-wide-enough">
+        <h1>THIS SITE IS NOT BUILT FOR EXPLORING ON YOUR PHONE.</h1>
+        <p>i wish for all who want to explore <i><u>our library</u></i> to do so intentionally. <br> in order to get the full experience, please come back on a larger-screened device!</p>
+        <h1>THANK YOU AND LONG LIVE NON-MOBILE WEB!!!!</h1>
     </div>
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
     <script type="module" src="scripts/library.js"></script>

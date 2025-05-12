@@ -23,6 +23,13 @@ u {
     --white: rgb(249, 246, 238);
 }
 
+#signoff {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
 body {
     font-family: "Tagesschrift", system-ui;
     background-color: var(--purple);

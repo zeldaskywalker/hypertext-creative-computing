@@ -1,3 +1,25 @@
+// do not open info modal automatically within the same day
+function checkInfoModalStatus() {
+  const now = new Date();
+  const now_ms = now.getTime();
+  const modalOpened = localStorage.getItem('modalOpened');
+  const expiration = localStorage.getItem('expiration');
+
+  if (!modalOpened) {
+    const one_day_ms = 86400000;
+    localStorage.setItem('modalOpened', true);
+    localStorage.setItem('expiration', now_ms + one_day_ms);
+    openInfo();
+  } else {
+    if (now_ms > expiration) {
+      localStorage.removeItem('modalOpened');
+      localStorage.removeItem('expiration');
+    }
+  }
+}
+
+window.onload = checkInfoModalStatus; // run when the page loads
+
 async function getAllBooks() {
   // get all books from baserow
   return axios({
@@ -127,6 +149,21 @@ function openBook(book) {
   open_book_modal.showModal();
 }
 
+function openInfo() {
+  var open_info_modal = document.getElementById('info-modal');
+  var close_button = document.getElementById('close-button');
+  open_info_modal.className = 'opened-book-modal';
+
+  // on click, remove the book, and close the modal!
+  close_button.addEventListener("click", function() {
+    open_info_modal.classList = [];
+    open_info_modal.close();
+  });
+
+  // once modal is built from books and notes, show it
+  open_info_modal.showModal();
+}
+
 // TODO: add community notes additions too
 function openBoard(books) {
   var open_board_modal = document.getElementById('board-modal');
@@ -161,7 +198,6 @@ function openBoard(books) {
   // create the close button
   var close_button = document.createElement('button');
   close_button.innerHTML = '&times;'; // Use an "X" symbol
-  close_button.style.cursor = 'pointer';
   close_button.id = 'close-button';
 
   // append close button and book div to modal
@@ -196,9 +232,31 @@ function dateParser(strDate) {
 }
 
 var list_of_books = await getAllBooks();
-console.log(list_of_books);
 
 var board = document.getElementById('board');
 board.addEventListener("click", function() {
   openBoard(list_of_books);
 });
+
+var info = document.getElementById('info');
+info.addEventListener("click", openInfo);
+
+var read_me = document.getElementById('read-me');
+read_me.addEventListener("click", function() {
+  window.location.href = "welcome.html";
+});
+
+function handleMobileOrResize() {
+  const overall_container = document.querySelector('#overall');
+  const invalid_width_container = document.querySelector('#not-wide-enough');
+  if (window.innerWidth < 1100) {
+    overall_container.style.display = 'none';
+    invalid_width_container.style.display = 'flex';
+  } else if (window.innerWidth >= 1100) {
+    overall_container.style.display = 'flex';
+    invalid_width_container.style.display = 'none';
+  }
+}
+
+handleMobileOrResize();
+window.addEventListener("resize", handleMobileOrResize);
