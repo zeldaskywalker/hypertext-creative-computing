@@ -6,7 +6,6 @@
 </head>
 
 <body>
-    <div id="return"> <h2>↜ <a href="add_book.html">add a book!</a></h2></div>
 
     <div id="overall">
 
@@ -15,9 +14,24 @@
             <div id="top-shelf"></div>
             <div id="middle-shelf"></div>
             <div id="bottom-shelf"></div>
+
+            <div id="read-me">
+                <span class="tooltiptext" id="read-me-tooltip">click on me to read more information about this project!</span>
+            </div>
+            <div id="board">
+                <span class="tooltiptext" id="board-tooltip">take a closer look at the bulletin board</span>
+            </div>
+            <a href="add_book.html">
+                <div id="add-book">
+                    <span class="tooltiptext" id="add-book-tooltip">press here to add a book to <i>our library</i></span>
+                </div>
+            </a>
         </div>
 
         <dialog id="book-modal">
+        </dialog>
+
+        <dialog id="board-modal">
         </dialog>
 
     </div>

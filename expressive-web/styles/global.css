@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite');
 
 body {
     width: 90%;
     margin: 0 auto;
+}
+
+u {
+    text-decoration: underline wavy var(--sapphire);
 }
 
 :root {
@@ -14,6 +19,8 @@ body {
     --water: rgb(172, 188, 245);
     --paper: rgb(246,238,227);
     --red: rgb(202, 60, 37);
+    --dark: rgb(48, 25, 52);
+    --white: rgb(249, 246, 238);
 }
 
 body {

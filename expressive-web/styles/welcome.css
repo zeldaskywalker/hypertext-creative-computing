@@ -1,0 +1,30 @@
+#overall {
+    text-align: center;
+    gap: 10px;
+    margin: 20px auto;
+    background-color: var(--paper);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 100px;
+    text-decoration: var(--green) dotted underline;
+}
+
+#content {
+    padding: 0px 30px;
+    font-family: "Special Elite", system-ui;
+    line-height: 150%;
+    font-size: 20px;
+    text-align: left;
+}
+
+#signoff {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,13 +1,12 @@
 async function getAllBooks() {
   // get all books from baserow
-  axios({
+  return axios({
     method: "GET",
-    url: "https://api.baserow.io/api/database/rows/table/519748/?user_field_names=true",
+    url: "https://api.baserow.io/api/database/rows/table/519748/?user_field_names=true&order_by=-added on",
     headers: {
       Authorization: "Token LnfGhMqIKGMAFpImIbVbEwf6T0BqTg4K"
     }
   }).then(function (response) {
-    console.log('reading from baserow...');
     const results = response.data.results;
     return results;
   }).then(function(results) {
@@ -35,6 +34,7 @@ async function getAllBooks() {
 
       shelf_container.appendChild(book_div);
     });
+    return results;
   });
 }
 
@@ -102,14 +102,16 @@ function openBook(book) {
   book_cover_div.appendChild(page_right_div);
   book_cover_div.appendChild(page_left_div);
 
+  // append book cover to book
+  book_div.appendChild(book_cover_div);
+
   // create the close button
   var close_button = document.createElement('button');
   close_button.innerHTML = '&times;'; // Use an "X" symbol
   close_button.style.cursor = 'pointer';
   close_button.id = 'close-button';
-  book_div.appendChild(book_cover_div);
 
-  // append close button to modal
+  // append close button and book div to modal
   open_book_modal.appendChild(close_button);
   open_book_modal.appendChild(book_div);
   open_book_modal.className = 'opened-book-modal';
@@ -125,4 +127,78 @@ function openBook(book) {
   open_book_modal.showModal();
 }
 
-const list_of_books = await getAllBooks();
+// TODO: add community notes additions too
+function openBoard(books) {
+  var open_board_modal = document.getElementById('board-modal');
+
+  // board
+  var board_div = document.createElement('div');
+  board_div.id = 'board-content';
+
+  var board_title = document.createElement('h2');
+  board_title.innerText = 'LIBRARY LOGS:'
+  board_div.appendChild(board_title);
+
+  // within the board, add a log of book additions
+  books.forEach(book => {
+    // new paragraph with when the book was added and by whom
+    var para = document.createElement('p');
+
+    // set initials to 'anonymous' if none were provided
+    var book_initials;
+    if (!book.initials) {
+      book_initials = 'anonymous'
+    } else {
+      book_initials = book.initials; 
+    }
+
+    para.innerHTML = "~~~ " + book_initials + " added <u>" + book.title + "</u> by " + book.author;
+    para.innerHTML += " on " + dateParser(book['added on']) + ".";
+
+    board_div.appendChild(para);
+  });
+
+  // create the close button
+  var close_button = document.createElement('button');
+  close_button.innerHTML = '&times;'; // Use an "X" symbol
+  close_button.style.cursor = 'pointer';
+  close_button.id = 'close-button';
+
+  // append close button and book div to modal
+  open_board_modal.appendChild(close_button);
+  open_board_modal.appendChild(board_div);
+  open_board_modal.className = 'opened-book-modal';
+
+  // on click, remove the book, and close the modal!
+  close_button.addEventListener("click", function() {
+    board_div.remove();
+    open_board_modal.classList = [];
+    open_board_modal.close();
+  });
+
+  // once modal is built from books and notes, show it
+  open_board_modal.showModal();
+}
+
+function dateParser(strDate) {
+  const full_date = new Date(strDate);
+  const weekday_names = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const month_names = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  
+  const final_day_of_week = weekday_names[full_date.getDay()];
+  const final_month = month_names[full_date.getMonth()];
+  const final_day = full_date.getDate();
+  const final_year = full_date.getFullYear();
+  const time = full_date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+  const formatted_date = `${final_day_of_week}, ${final_month} ${final_day}, ${final_year} at ${time}`;
+  return formatted_date;
+}
+
+var list_of_books = await getAllBooks();
+console.log(list_of_books);
+
+var board = document.getElementById('board');
+board.addEventListener("click", function() {
+  openBoard(list_of_books);
+});
