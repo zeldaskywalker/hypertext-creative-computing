@@ -2,8 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite');
 
 body {
+    font-family: "Tagesschrift", system-ui;
+    background-color: var(--purple);
     width: 90%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 u {
@@ -28,11 +35,6 @@ u {
     text-align: center;
     justify-content: space-around;
     align-items: center;
-}
-
-body {
-    font-family: "Tagesschrift", system-ui;
-    background-color: var(--purple);
 }
 
 h1 {
