@@ -1,11 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite');
 
+:root {
+    --sapphire: rgb(64, 89, 173);
+    --purple: rgb(196,165,206);
+    --pink: rgb(255, 215, 233);
+    --sage: rgb(144, 180, 148);
+    --green: rgb(16, 73, 17);
+    --icy: rgb(227, 233, 255);
+    --water: rgb(172, 188, 245);
+    --paper: rgb(246,238,227);
+    --red: rgb(202, 60, 37);
+    --invalid: rgba(255, 68, 68, 0.2);
+    --valid: rgba(68, 170, 68, 0.2);
+    --dark: rgb(48, 25, 52);
+    --white: rgb(249, 246, 238);
+}
+
 body {
+    font-size: 1.4vw;
     font-family: "Tagesschrift", system-ui;
     background-color: var(--purple);
     width: 90%;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,19 +34,6 @@ u {
     text-decoration: underline wavy var(--sapphire);
 }
 
-:root {
-    --sapphire: rgb(64, 89, 173);
-    --purple: rgb(196,165,206);
-    --sage: rgb(144, 180, 148);
-    --green: rgb(16, 73, 17);
-    --icy: rgb(227, 233, 255);
-    --water: rgb(172, 188, 245);
-    --paper: rgb(246,238,227);
-    --red: rgb(202, 60, 37);
-    --dark: rgb(48, 25, 52);
-    --white: rgb(249, 246, 238);
-}
-
 #signoff {
     display: flex;
     text-align: center;
@@ -39,6 +43,8 @@ u {
 
 h1 {
     font-size: 60px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 a {
@@ -47,6 +53,76 @@ a {
 }
 
 a:hover {
+    cursor: pointer;
     background-color: var(--sage);
     text-decoration: var(--green) dotted underline;
+}
+
+input {
+    font-family: "Tagesschrift", system-ui;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    font-size: 1.35vw;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+}
+
+input[type="text"]:invalid,
+textarea:invalid {
+    border-color: var(--red);
+}
+
+input[type="text"]:valid,
+textarea:valid {
+    border-color: var(--sage);
+}
+
+input[type="text"]:invalid:focus,
+textarea:invalid:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 2px var(--invalid);
+}
+
+input[type="text"]:valid:focus,
+textarea:valid:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 2px var(--valid);
+}
+
+form [type="button"] {
+    border-radius: 2px;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+form:invalid [type="button"] {
+    pointer-events: none;
+    border: 1px solid #999999;
+    background-color: #CCCCCC;
+    color: #666666;
+}
+
+form:valid [type="button"] {
+    background-color: var(--icy);
+    border-color: var(--green);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+form [type="button"]:hover {
+    background-color: var(--sage);
+}
+
+textarea {
+    font-size: 1.35vw;
+    font-family: "Tagesschrift", system-ui;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    resize: none;
 }

@@ -3,20 +3,25 @@
 <head>
     <link rel="stylesheet" type="text/css" href="styles/global.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="styles/library.css" media="screen" />
+    <link rel="icon" type="image/x-icon" href="assets/images/icon.png">
 </head>
 
 <body>
     <div id="overall">
         <div id="new-library">
             <img id="drawing" src="assets/images/library.png">
-            <div id="info"></div>
+            <div id="info">
+                <span class="tooltiptext" id="info-tooltip">see info panel</span>
+            </div>
             <div id="top-shelf"></div>
             <div id="middle-shelf"></div>
             <div id="bottom-shelf"></div>
 
-            <div id="read-me">
-                <span class="tooltiptext" id="read-me-tooltip">click on me to read more information about this project!</span>
-            </div>
+            <a href="welcome.html">
+                <div id="read-me">
+                    <span class="tooltiptext" id="read-me-tooltip">click on me to read more information about this project!</span>
+                </div>
+            </a>
             <div id="board">
                 <span class="tooltiptext" id="board-tooltip">take a closer look at the bulletin board</span>
             </div>
@@ -70,5 +75,7 @@
         <h1>THANK YOU AND LONG LIVE NON-MOBILE WEB!!!!</h1>
     </div>
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <script type="module" src="scripts/utils.js"></script>
+    <script type="module" src="scripts/baserow.js"></script>
     <script type="module" src="scripts/library.js"></script>
 </body>
