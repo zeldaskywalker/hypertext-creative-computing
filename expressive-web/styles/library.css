@@ -10,6 +10,11 @@
     background-color: var(--icy);
 }
 
+#add-note-div:hover {
+    cursor: pointer;
+    background-color: var(--sage);
+}
+
 .book-on-shelf:hover {
     background-color: var(--water);
 }
@@ -62,14 +67,13 @@
 #new-library {
     position: relative;
     width: 100%;
-    position: relative;
     display: flex;
     align-items: flex-end;
     gap: 1px;
 }
 
 #drawing {
-    width: -webkit-fill-available;
+    width: 100%;
     max-height: 87vh;
 }
 
@@ -78,6 +82,7 @@
     height: 88%;
     scale: 0.9;
     border-radius: 5px;
+    overflow: hidden;
     background-color: var(--icy);
 }
 
@@ -85,7 +90,40 @@
     backdrop-filter: blur(0.5px);
 }
 
+.board-button {
+    font-family: "Special Elite", system-ui;
+    font-size: 1.2vw;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#notes-button {
+    /* color: var(--white); */
+    background-color: var(--water);
+}
+
+#books-button {
+    /* color: var(--white); */
+    background-color: var(--sage);
+}
+
+#notes-button-toggled {
+    color: var(--white);
+    background-color: var(--sapphire);
+}
+
+#books-button-toggled {
+    color: var(--white);
+    background-color: var(--green);
+}
+
+#board-content h2 {
+    margin-bottom: 10px;
+}
+
 #board-modal {
+    overflow: hidden;
     width: 70%;
     height: 88%;
     scale: 0.9;
@@ -107,11 +145,50 @@
     border-radius: 5px;
 }
 
+#board-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#board-book-logs {
+    margin-top: 20px;
+    overflow-y: scroll;
+    flex-direction: column;
+    height: 80%
+}
+
+#board-communal-notes-logs {
+    margin-top: 20px;
+    overflow-y: scroll;
+    flex-direction: column;
+    height: 80%;
+}
+
+#board-content p {
+    font-size: 1.15vw;
+}
+
+#communal-note-info {
+    font-size: 1.4vw;
+    height: 80%;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    flex-direction: column;
+}
+
 
 .opened-book-modal {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+#add-communal-note-button {
+    margin-top: 50px;
+    font-size: 25px;
+    align-self: center;
 }
 
 #close-button {
@@ -138,13 +215,14 @@ h3 {
 
 /* from W3 schools: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_tooltip */
 .tooltiptext {
+    font-size: 1.05vw;
     visibility: hidden;
     width: 120px;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px;
     position: absolute;
     z-index: 1;
     margin-left: -60px;
@@ -152,21 +230,27 @@ h3 {
     transition: opacity 0.3s;
 }
 
+#info-tooltip {
+    width: 150px;
+    top: 0%;
+    left: 270%;
+}
+
 #read-me-tooltip {
     width: 200px;
     bottom: 105%;
-    left: 10%;
+    left: 18%;
 }
 
 #board-tooltip {
-    width: 160px;
-    top: -32%;
+    width: 180px;
+    top: -37%;
     left: 42%;
 }
 
 #add-book-tooltip {
     top: 5%;
-    left: 125%;
+    left: 115%;
 }
 
 .right::after {
@@ -255,6 +339,18 @@ h3 {
     cursor: pointer;
 }
 
+#info .tooltiptext::after {
+    top: 37%;
+    left: -3%;
+    border-color: transparent #555 transparent transparent;
+}
+
+#info:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+
 #read-me:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
@@ -288,7 +384,7 @@ h3 {
 
 #add-book .tooltiptext::after {
     top: 45%;
-    left: -4%;
+    left: -3%;
     border-color: transparent #555 transparent transparent;
 }
 
@@ -321,7 +417,6 @@ h3 {
 #overall {
     display: flex;
     gap: 10px;
-    margin: 20px auto;
     background-color: var(--paper);
     padding: 30px;
     border-radius: 8px;
@@ -340,12 +435,78 @@ h3 {
     width: 70%;
 }
 
+#communal-notes-title {
+    align-self: flex-end;
+}
+
+#add-communal-notes-title {
+    align-self: flex-end;
+}
+
+#add-note-link {
+    font-size: 20px;
+}
+
+#overall-add-communal-note-form {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    width: 85%;
+    height: 90%;
+    justify-content: center;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background-color: var(--pink);
+}
+
+.hidden {
+    display: none;
+}
+
+#notes-only {
+    font-size: 1.15vw;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 100%;
+    height: 80%;
+}
+
+#add-form-title-div {
+    height: 15%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#communal-notes-title-div {
+    height: 15%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#overall-communal-notes {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 20px;
+    width: 85%;
+    height: 90%;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background-color: var(--water);
+}
+
 /* book container */
-.book {
+#book {
     position: relative;
     width: 85%;
     height: 90%;
     perspective: 1500px;
+    scale: 0.95;
 }
 
 .page-content p {
@@ -365,9 +526,68 @@ h3 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+#see-or-return {
+    display: flex;
+    width: 100%;
+    height: 5%;
+    justify-content: space-evenly;
+    align-self: end;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+#return-to-book {
+    width: fit-content;
+    font-size: 1.4vw;
+    justify-self: flex-end;
+}
+
+#see-notes-link-on-book-page, #add-note-link-on-book-page {
+    font-size: 1.1vw;
+}
+
+#see-note-link {
+    width: fit-content;
+    font-size: 1.4vw;
+    justify-self: flex-end;
+}
+
+#add-communal-note {
+    width: fit-content;
+    align-self: center;
+}
+
+textarea {
+    height: 200px;
+    margin-bottom: 10px;
+    font-size: 1.2vw;
+}
+
+input {
+    font-size: 20px;
+}
+
+#communal-note-form-container {
+    font-size: 1.4vw;
+    height: 100%;
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    flex-direction: column;
+}
+
 /* book cover and pages container */
 .book-cover {
     position: absolute;
+    border-radius: 3px;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
@@ -415,7 +635,7 @@ h3 {
 
 /* page content */
 .page-content {
-    font-size: 16px;
+    font-size: 1.1vw;
     line-height: 1.6;
     color: #333;
     transform: translateZ(20px);
@@ -435,8 +655,27 @@ h3 {
     border-radius: 8px;
 }
 
+#see-or-add-notes-on-book-page {
+    font-size: 1.1vw;
+}
+
+#add-or-return {
+    display: flex;
+    width: 100%;
+    height: 5%;
+    justify-content: space-evenly;
+    align-self: end;
+}
+
+#see-or-add-notes {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
 /* back cover sides */
 .back-cover-left {
+    border-radius: 3px;
     position: absolute;
     left: 0;
     width: 50%;
@@ -449,6 +688,7 @@ h3 {
 }
 
 .back-cover-right {
+    border-radius: 3px;
     position: absolute;
     right: 0;
     width: 50%;
