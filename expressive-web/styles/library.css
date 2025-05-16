@@ -91,6 +91,7 @@
 }
 
 .board-button {
+    cursor: pointer;
     font-family: "Special Elite", system-ui;
     font-size: 1.2vw;
     border: none;
@@ -99,21 +100,21 @@
 }
 
 #notes-button {
-    /* color: var(--white); */
     background-color: var(--water);
 }
 
 #books-button {
-    /* color: var(--white); */
     background-color: var(--sage);
 }
 
 #notes-button-toggled {
+    cursor: default;
     color: var(--white);
     background-color: var(--sapphire);
 }
 
 #books-button-toggled {
+    cursor: default;
     color: var(--white);
     background-color: var(--green);
 }
@@ -230,22 +231,10 @@ h3 {
     transition: opacity 0.3s;
 }
 
-#info-tooltip {
-    width: 150px;
-    top: 0%;
-    left: 270%;
-}
-
 #read-me-tooltip {
     width: 200px;
     bottom: 105%;
     left: 18%;
-}
-
-#board-tooltip {
-    width: 180px;
-    top: -37%;
-    left: 42%;
 }
 
 #add-book-tooltip {
@@ -279,6 +268,10 @@ h3 {
     font-family: "Special Elite", system-ui;
 }
 
+#info-content p {
+    font-size: 2vw;
+}
+
 #inline-info {
     display: inline-block;
     height: 1em;
@@ -296,7 +289,7 @@ h3 {
 }
 
 #info:hover {
-    cursor: pointer;
+    cursor: help;
 }
 
 #info-modal {
@@ -328,28 +321,16 @@ h3 {
 }
 
 #read-me:hover {
-    cursor: pointer;
+    cursor: alias;
 }
 
 #board:hover {
-    cursor: pointer;
+    cursor: zoom-in;
 }
 
 #add-book:hover {
-    cursor: pointer;
+    cursor: alias;
 }
-
-#info .tooltiptext::after {
-    top: 37%;
-    left: -3%;
-    border-color: transparent #555 transparent transparent;
-}
-
-#info:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
 
 #read-me:hover .tooltiptext {
     visibility: visible;
@@ -362,11 +343,6 @@ h3 {
     left: 51%;
     width: 24%;
     height: 28%;
-}
-
-#board:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
 }
 
 #add-book {
